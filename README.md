@@ -4,6 +4,10 @@
 
 ## Task 1
 
+Create a new branch when working on the solution for this task. 
+While being on branch task1, use something like
+`git checkout -b my-task1-solution`
+
 Create a component "FunComponent" that displays a title and some paragraphs.
 
 Both the title the paragraphs are input properties of the component.
@@ -14,9 +18,21 @@ The component should fill all the available space within its html parent element
 
 The component has a distinct background color, a small padding and no borders.
 
-If the content of FunComponent overflows, vertical scrolling should be possible.
+If the content of FunComponent overflows the content should scroll vertically. You know that the parent of the component will always be at least 200px high. Scrolling should only happen for the paragraphs, the title remains where it is when scrolling down the paragraphs.
+
+Test your component by placing it in a parent div of specific width and height. Use as many paragraphs as necessary to test the scrolling behavior.
+
+If you haven't done so yet, commit your changes once the task is complete.
 
 ## Task 2
+
+Start working on a new branch. You should build upon your own solution from task1. This can be done in 2 steps.
+
+You should be on the branch task2 now.
+First checkout a new branch from here:
+`git checkout -b my-task2-solution`
+Now you are on the new branch. Merge your task1 solution into it.
+`git merge my-task1-solution`
 
 Create a wrapper component "FunViewer" that displays the FunComponent.
 
@@ -38,7 +54,14 @@ FunViewer has a distinct background color and no padding.
 
 FunViewer displays FunComponent with the title input "Test Title" and the paragraphs input ["This is paragraph 1", "This is paragraph 2", ... , "This is paragraph 20"]. Generate this data programatically in the ngOnInit() method.
 
+If you haven't done so yet, commit your changes once the task is complete.
+
 ## Task 3
+
+Start working on a new branch, like you did when starting the work on task 2.
+You should be on the branch task3. Execute
+`git checkout -b my-task3-solution`
+`git merge my-task2-solution`
 
 Instead of hardcoded dummy data, let's use lorem ipsum as input for the FunComponent.
 
@@ -46,8 +69,11 @@ Install a lorem ipsum generator from npm.
 
 Use the generator to create the data within the FunViewer's ngOnInit() method and set it as input for the FunComponent.
 
+If you haven't done so yet, commit your changes once the task is complete.
 
 ## Task 4
+
+Start working on a new branch, like you did when starting the work on earlier tasks.
 
 Instead of the lorem ipsum generator, let us create and use a service ChuckNorrisService that fetches chuck norris facts from a REST API. 
 
@@ -66,3 +92,5 @@ In this first implementation, there would only be one joke to display. Since our
 The Chuck Norris Jokes API can be used with a GET request to "https://api.chucknorris.io/jokes/random". 
 
 See the details of how the response is structured at "https://api.chucknorris.io/#!", or just try the request in your browser.
+
+If you haven't done so yet, commit your changes once the task is complete.
