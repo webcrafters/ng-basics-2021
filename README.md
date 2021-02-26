@@ -16,6 +16,8 @@ The component has a distinct background color, a small padding and no borders.
 
 If the content of FunComponent overflows, vertical scrolling should be possible.
 
+Test your component by placing it in a parent div of specific width and height.
+
 ## Task 2
 
 Create a wrapper component "FunViewer" that displays the FunComponent.
@@ -37,4 +39,3 @@ Also, FunViewer contains a button "Toggle layout". When the button is pressed, F
 FunViewer has a distinct background color and no padding.
 
 FunViewer displays FunComponent with the title input "Test Title" and the paragraphs input ["This is paragraph 1", "This is paragraph 2", ... , "This is paragraph 20"]. Generate this data programatically in the ngOnInit() method.
-
