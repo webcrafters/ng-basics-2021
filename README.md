@@ -45,3 +45,24 @@ Instead of hardcoded dummy data, let's use lorem ipsum as input for the FunCompo
 Install a lorem ipsum generator from npm.
 
 Use the generator to create the data within the FunViewer's ngOnInit() method and set it as input for the FunComponent.
+
+
+## Task 4
+
+Instead of the lorem ipsum generator, let us create and use a service ChuckNorrisService that fetches chuck norris facts from a REST API. 
+
+The service exposes the method
+
+fetchFact(): Observable<string>
+
+which returns an observable that emits one random Chuck Norris joke
+
+FunViewer injects the ChuckNorrisService and uses it to set the joke as input for the FunComponent.
+
+In this first implementation, there would only be one joke to display. Since our FunComponent looks better with many paragraphs, let us replicate the joke from fetchFact() 20 times, such that the paragraphs input is of the form 
+
+["Chuck Norris once went to ... ", "Chuck Norris once went to ... ", ... ]  (20 times)
+
+The Chuck Norris Jokes API can be used with a GET request to "https://api.chucknorris.io/jokes/random". 
+
+See the details of how the response is structured at "https://api.chucknorris.io/#!", or just try the request in your browser.
