@@ -1,8 +1,13 @@
 :host {
-  display: block;
+  display: flex;
+  flex-direction: column;
   width: 100%;
   height: 100%;
-  background-color: hsl(54, 100%, 85%);
+  background-color: hsl(54, 90%, 92%);
   padding: 12px;
+}
+
+.paragraphs {
   overflow-y: scroll;
+  height: 100%;
 }
