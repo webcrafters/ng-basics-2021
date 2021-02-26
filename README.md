@@ -38,3 +38,10 @@ FunViewer has a distinct background color and no padding.
 
 FunViewer displays FunComponent with the title input "Test Title" and the paragraphs input ["This is paragraph 1", "This is paragraph 2", ... , "This is paragraph 20"]. Generate this data programatically in the ngOnInit() method.
 
+## Task 3
+
+Instead of hardcoded dummy data, let's use lorem ipsum as input for the FunComponent.
+
+Install a lorem ipsum generator from npm.
+
+Use the generator to create the data within the FunViewer's ngOnInit() method and set it as input for the FunComponent.
