@@ -1,15 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-fun',
   templateUrl: './fun.component.html',
-  styleUrls: ['./fun.component.scss']
+  styleUrls: ['./fun.component.scss'],
 })
 export class FunComponent implements OnInit {
+  @Input() title: string = new Input();
+  @Input() paragraphs: string[] = new Input();
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }
