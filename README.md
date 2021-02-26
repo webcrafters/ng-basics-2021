@@ -66,4 +66,5 @@ Instead of hardcoded dummy data, let's use lorem ipsum as input for the FunCompo
 Install a lorem ipsum generator from npm.
 
 Use the generator to create the data within the FunViewer's ngOnInit() method and set it as input for the FunComponent.
+
 If you haven't done so yet, commit your changes once the task is complete.

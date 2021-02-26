@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { LoremIpsum } from 'lorem-ipsum';
 
 @Component({
   selector: 'app-fun-viewer',
@@ -10,12 +11,17 @@ export class FunViewerComponent implements OnInit {
 
   paragraphs: string[] = [];
 
-  constructor() {}
+  constructor(private loremIpsumGenerator: LoremIpsum) {}
 
   ngOnInit(): void {
-    this.paragraphs = new Array(20)
-      .fill('This is paragraph ')
-      .map((t, idx) => `${t}${idx + 1}`);
+    const gen = this.loremIpsumGenerator.generator;
+    gen.sentencesPerParagraph.min = 2;
+    gen.sentencesPerParagraph.max = 4;
+    gen.wordsPerSentence.min = 8;
+    gen.wordsPerSentence.max = 20;
+    this.paragraphs = this.loremIpsumGenerator
+      .generateParagraphs(20)
+      .split('\n');
   }
 
   toggleLayout() {
