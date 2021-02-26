@@ -124,3 +124,22 @@ If no category is provided, the request goes out without any query parameter.
 When FunViewer is initialized, before any category is clicked, there should still be displayed a random joke in the FunComponent.
 
 If you haven't done so yet, commit your changes once the task is complete.
+
+## Task 6
+
+Start working on a new branch, like you did when starting the work on earlier tasks.
+
+Fetch multiple jokes in parallel.
+
+ChuckNorrisService should expose the method
+
+fetchJokes(category?: string): Observable<string[]>
+
+The method returns an Observable which emits exactly one value, an array of 10 jokes. 
+
+Implementation: fetchJokes() sends 10 get requests and returns a join of them all (forkJoin operator).
+
+Now FunViewer doesn't have to copy jokes, it can receive several jokes at once.
+
+If you haven't done so yet, commit your changes once the task is complete.
+
