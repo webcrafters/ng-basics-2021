@@ -1,0 +1,15 @@
+<div
+  [ngClass]="{
+    wrapper: true,
+    horizontal: isHorizontal,
+    vertical: !isHorizontal
+  }"
+>
+  <div class="aside">
+    <h1>Choose your category</h1>
+  </div>
+  <ng-container *ngIf="facts$ | async as fact">
+    <app-fun [title]="'Test Title'" [paragraphs]="[fact]"></app-fun>
+  </ng-container>
+</div>
+<button class="toggler" (click)="toggleLayout()">Toggle layout</button>
