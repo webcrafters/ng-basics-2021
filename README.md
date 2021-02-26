@@ -103,7 +103,7 @@ The Chuck Norris API also gives us a list of available categories. -> GET "https
 
 ChuckNorrisService should also have a method 
 
-fetchCategories(): Observable<string[]>
+`fetchCategories(): Observable<string[]>`
 
 to retrieve those categories.
 
@@ -113,7 +113,7 @@ The list elements should be interactive. When one of the elements is clicked, th
 
 ChuckNorrisService now has a more sophisticated fetchFact method:
 
-fetchFact(category?: string): Observable<string>
+`fetchFact(category?: string): Observable<string>`
 
 If a category is provided as a parameter, the request to the API can be made accordingly:
 
