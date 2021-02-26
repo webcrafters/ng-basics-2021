@@ -7,6 +7,15 @@
 >
   <div class="aside">
     <h1>Choose your category</h1>
+    <ul class="categories-list">
+      <li
+        *ngFor="let category of categories$ | async"
+        (click)="selectCategory(category)"
+        [ngClass]="{ 'selected-cat': category === selectedCategory }"
+      >
+        {{ category }}
+      </li>
+    </ul>
   </div>
   <app-fun
     [title]="'Test Title'"

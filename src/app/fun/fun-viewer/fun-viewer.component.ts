@@ -11,17 +11,31 @@ import { map } from 'rxjs/operators';
 export class FunViewerComponent implements OnInit {
   @Input() isHorizontal: boolean = false;
 
+  categories$: Observable<string[]> = of([]);
+
   facts$: Observable<string[]> = of([]);
+
+  selectedCategory: string | undefined;
 
   constructor(private chuckNorrisSvc: ChuckNorrisService) {}
 
   ngOnInit() {
+    this.categories$ = this.chuckNorrisSvc.fetchCategories();
+    this._updateFacts();
+  }
+
+  private _updateFacts() {
     this.facts$ = this.chuckNorrisSvc
-      .fetchFact()
+      .fetchFact(this.selectedCategory)
       .pipe(map((fact: string) => new Array(20).fill(fact)));
   }
 
   toggleLayout() {
     this.isHorizontal = !this.isHorizontal;
+  }
+
+  selectCategory(category: string) {
+    this.selectedCategory = category;
+    this._updateFacts();
   }
 }
