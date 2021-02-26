@@ -1,7 +1,5 @@
 # Reusing components in Angular
 
-
-
 ## Task 1
 
 Create a new branch when working on the solution for this task. 
