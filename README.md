@@ -66,3 +66,32 @@ In this first implementation, there would only be one joke to display. Since our
 The Chuck Norris Jokes API can be used with a GET request to "https://api.chucknorris.io/jokes/random". 
 
 See the details of how the response is structured at "https://api.chucknorris.io/#!", or just try the request in your browser.
+
+
+
+## Task 5
+
+The Chuck Norris API also gives us a list of available categories. -> GET "https://api.chucknorris.io/jokes/categories"
+
+ChuckNorrisService should also have a method 
+
+fetchCategories(): Observable<string[]>
+
+to retrieve those categories.
+
+FunViewer should use the method in order to obtain the categories, then list these categories below the title "Choose your category".
+
+The list elements should be interactive. When one of the elements is clicked, the input data for FunComponent is updated.
+
+ChuckNorrisService now has a more sophisticated fetchFact method:
+
+fetchFact(category?: string): Observable<string>
+
+If a category is provided as a parameter, the request to the API can be made accordingly:
+
+"https://api.chucknorris.io/jokes/random?category={category}"
+
+If no category is provided, the request goes out without any query parameter.
+
+When FunViewer is initialized, before any category is clicked, there should still be displayed a random joke in the FunComponent.
+
