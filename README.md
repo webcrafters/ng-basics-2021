@@ -14,6 +14,6 @@ The component should fill all the available space within its html parent element
 
 The component has a distinct background color, a small padding and no borders.
 
-If the content of FunComponent overflows, vertical scrolling should be possible.
+If the content of FunComponent overflows the content should scroll vertically. You know that the parent of the component will always be at least 200px high. Scrolling should only happen for the paragraphs, the title remains where it is when scrolling down the paragraphs.
 
-Test your component by placing it in a parent div of specific width and height.
+Test your component by placing it in a parent div of specific width and height. Use as many paragraphs as necessary to test the scrolling behavior.
