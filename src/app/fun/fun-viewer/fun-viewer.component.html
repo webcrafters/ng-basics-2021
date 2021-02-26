@@ -1,0 +1,16 @@
+<div
+  [ngClass]="{
+    wrapper: true,
+    horizontal: isHorizontal,
+    vertical: !isHorizontal
+  }"
+>
+  <div class="aside">
+    <h1>Choose your category</h1>
+  </div>
+  <app-fun
+    [title]="'Test Title'"
+    [paragraphs]="(facts$ | async) || []"
+  ></app-fun>
+</div>
+<button class="toggler" (click)="toggleLayout()">Toggle layout</button>

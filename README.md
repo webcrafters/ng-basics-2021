@@ -1,7 +1,5 @@
 # Reusing components in Angular
 
-
-
 ## Task 1
 
 Create a new branch when working on the solution for this task. 
@@ -91,7 +89,7 @@ In this first implementation, there would only be one joke to display. Since our
 
 The Chuck Norris Jokes API can be used with a GET request to "https://api.chucknorris.io/jokes/random". 
 
-See the details of how the response is structured at "https://api.chucknorris.io/#!", or just try the request in your browser.
+See the details of how the response is structured at "https:  //api.chucknorris.io/#!", or just try the request in your browser.
 
 If you haven't done so yet, commit your changes once the task is complete.
 
