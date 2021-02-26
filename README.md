@@ -77,7 +77,7 @@ Instead of the lorem ipsum generator, let us create and use a service ChuckNorri
 
 The service exposes the method
 
-fetchFact(): Observable<string>
+`fetchFact(): Observable<string>`
 
 which returns an observable that emits one random Chuck Norris joke
 
@@ -85,7 +85,7 @@ FunViewer injects the ChuckNorrisService and uses it to set the joke as input fo
 
 In this first implementation, there would only be one joke to display. Since our FunComponent looks better with many paragraphs, let us replicate the joke from fetchFact() 20 times, such that the paragraphs input is of the form 
 
-["Chuck Norris once went to ... ", "Chuck Norris once went to ... ", ... ]  (20 times)
+`["Chuck Norris once went to ... ", "Chuck Norris once went to ... ", ... ] ` (20 times)
 
 The Chuck Norris Jokes API can be used with a GET request to "https://api.chucknorris.io/jokes/random". 
 
