@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Reusing components in Angular
 
 
@@ -94,3 +95,12 @@ The Chuck Norris Jokes API can be used with a GET request to "https://api.chuckn
 See the details of how the response is structured at "https://api.chucknorris.io/#!", or just try the request in your browser.
 
 If you haven't done so yet, commit your changes once the task is complete.
+=======
+# ng-basics-2021
+
+This project was created with Angular 11 and contains several assignments.
+
+Find them on their respective branches.
+
+The tasks build upon each other, they are to be completed in order.
+>>>>>>> master
