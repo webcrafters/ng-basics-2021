@@ -136,11 +136,11 @@ Fetch multiple jokes in parallel.
 
 ChuckNorrisService should expose the method
 
-fetchJokes(category?: string): Observable<string[]>
+`fetchFacts(category?: string): Observable<string[]>`
 
 The method returns an Observable which emits exactly one value, an array of 10 jokes. 
 
-Implementation: fetchJokes() sends 10 get requests and returns a join of them all (forkJoin operator).
+Implementation: fetchFacts() sends 10 get requests and returns a join of them all (forkJoin operator).
 
 Now FunViewer doesn't have to copy jokes, it can receive several jokes at once.
 
