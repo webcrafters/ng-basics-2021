@@ -1,8 +1,10 @@
-<<<<<<< HEAD
-# Reusing components in Angular
+# ng-basics-2021
 
+This project was created with Angular 11 and contains several assignments.
 
+Find them on their respective branches.
 
+The tasks build upon each other, they are to be completed in order.
 ## Task 1
 
 Create a new branch when working on the solution for this task. 
@@ -125,12 +127,4 @@ If no category is provided, the request goes out without any query parameter.
 When FunViewer is initialized, before any category is clicked, there should still be displayed a random joke in the FunComponent.
 
 If you haven't done so yet, commit your changes once the task is complete.
-=======
-# ng-basics-2021
 
-This project was created with Angular 11 and contains several assignments.
-
-Find them on their respective branches.
-
-The tasks build upon each other, they are to be completed in order.
->>>>>>> master
