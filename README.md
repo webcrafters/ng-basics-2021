@@ -1,8 +1,10 @@
-<<<<<<< HEAD
-# Reusing components in Angular
+# ng-basics-2021
 
+This project was created with Angular 11 and contains several assignments.
 
+Find them on their respective branches.
 
+The tasks build upon each other, they are to be completed in order.
 ## Task 1
 
 Create a new branch when working on the solution for this task. 
@@ -70,12 +72,4 @@ Install a lorem ipsum generator from npm.
 
 Use the generator to create the data within the FunViewer's ngOnInit() method and set it as input for the FunComponent.
 If you haven't done so yet, commit your changes once the task is complete.
-=======
-# ng-basics-2021
 
-This project was created with Angular 11 and contains several assignments.
-
-Find them on their respective branches.
-
-The tasks build upon each other, they are to be completed in order.
->>>>>>> master
