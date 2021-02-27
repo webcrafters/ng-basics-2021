@@ -17,9 +17,6 @@
       </li>
     </ul>
   </div>
-  <app-fun
-    [title]="'Test Title'"
-    [paragraphs]="(facts$ | async) || []"
-  ></app-fun>
+  <app-fun [title]="getTitle()" [paragraphs]="(facts$ | async) || []"></app-fun>
 </div>
 <button class="toggler" (click)="toggleLayout()">Toggle layout</button>
