@@ -139,7 +139,7 @@ Fetch multiple jokes in parallel.
 
 ChuckNorrisService should expose the method
 
-fetchJokes(category?: string): Observable<string[]>
+`fetchJokes(category?: string): Observable<string[]>`
 
 The method returns an Observable which emits exactly one value, an array of 10 jokes. 
 

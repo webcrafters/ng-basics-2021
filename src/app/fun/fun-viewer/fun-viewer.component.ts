@@ -25,9 +25,7 @@ export class FunViewerComponent implements OnInit {
   }
 
   private _updateFacts() {
-    this.facts$ = this.chuckNorrisSvc
-      .fetchFact(this.selectedCategory)
-      .pipe(map((fact: string) => new Array(20).fill(fact)));
+    this.facts$ = this.chuckNorrisSvc.fetchFacts(this.selectedCategory);
   }
 
   toggleLayout() {
