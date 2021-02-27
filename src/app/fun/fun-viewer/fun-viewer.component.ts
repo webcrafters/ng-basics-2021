@@ -26,7 +26,7 @@ export class FunViewerComponent implements OnInit {
   }
 
   loadFacts() {
-    this.chuckNorrisSvc.loadFacts();
+    this.chuckNorrisSvc.loadFacts(this.selectedCategory);
   }
 
   toggleLayout() {
@@ -35,14 +35,11 @@ export class FunViewerComponent implements OnInit {
 
   selectCategory(category: string) {
     this.selectedCategory = category;
-    const categoryForSvc =
-      this.selectedCategory == 'all' ? undefined : this.selectedCategory;
-    this.chuckNorrisSvc.updateCategory(categoryForSvc);
   }
 
   getTitle(): string {
     const suffix =
-      this.selectedCategory === undefined
+      this.selectedCategory === 'all'
         ? ''
         : ` - ${this.selectedCategory.toUpperCase()}`;
     return `Chuck Norris Facts${suffix}`;

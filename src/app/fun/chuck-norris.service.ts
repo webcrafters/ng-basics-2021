@@ -7,16 +7,15 @@ import { map, mergeMap, scan } from 'rxjs/operators';
   providedIn: 'root',
 })
 export class ChuckNorrisService {
-  category: string | undefined;
-
-  private _loadRequestByUser$: EventEmitter<any> = new EventEmitter<any>();
+  // on each request for jokes, the category is specified as event payload
+  private _loadRequestByUser$: EventEmitter<string> = new EventEmitter<string>();
 
   get facts$(): Observable<string[]> {
     // ELABORATE SOLUTION
-    const clickOnLoad$: Observable<any> = this._loadRequestByUser$;
+    const clickOnLoad$: Observable<string> = this._loadRequestByUser$;
 
     const factsPerClickOnLoad$: Observable<string[]> = clickOnLoad$.pipe(
-      mergeMap(() => this._fetchFacts())
+      mergeMap((category: string) => this._fetchFacts(category))
       // this operator is like map,
       // but instead of mapping each emission to the observable returned by _fetchFacts() ,
       // it also "unpacks" that observable, such that it maps to the actual value emitted by it.
@@ -32,7 +31,7 @@ export class ChuckNorrisService {
 
     // COMPACT SOLUTION
     // return this._loadRequestByUser$.pipe(
-    //   mergeMap(() => this._fetchFacts()),
+    //   mergeMap((category: string) => this._fetchFacts(category)),
     //   scan((acc, curr) => [...acc, ...curr], [] as string[])
     // );
   }
@@ -45,16 +44,15 @@ export class ChuckNorrisService {
     );
   }
 
-  updateCategory(category?: string) {
-    this.category = category;
+  loadFacts(category: string) {
+    this._loadRequestByUser$.emit(category);
   }
 
-  loadFacts() {
-    this._loadRequestByUser$.emit();
-  }
-
-  private _fetchFacts(howMany?: number): Observable<string[]> {
-    const params = this.category ? `?category=${this.category}` : '';
+  private _fetchFacts(
+    category?: string,
+    howMany?: number
+  ): Observable<string[]> {
+    const params = category !== 'all' ? `?category=${category}` : '';
     const url = `https://api.chucknorris.io/jokes/random${params}`;
 
     const requests: Observable<string>[] = new Array(howMany ?? 10)
