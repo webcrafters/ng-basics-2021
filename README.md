@@ -94,7 +94,7 @@ In this first implementation, there would only be one joke to display. Since our
 
 The Chuck Norris Jokes API can be used with a GET request to "https://api.chucknorris.io/jokes/random". 
 
-See the details of how the response is structured at "https://api.chucknorris.io/#!", or just try the request in your browser.
+See the details of how the response is structured at "https:  //api.chucknorris.io/#!", or just try the request in your browser.
 
 If you haven't done so yet, commit your changes once the task is complete.
 
@@ -113,6 +113,9 @@ to retrieve those categories.
 FunViewer should use the method in order to obtain the categories, then list these categories below the title "Choose your category".
 
 The list elements should be interactive. When one of the elements is clicked, the input data for FunComponent is updated.
+
+The list should be scrollable on overflow, just like the paragraphs in the FunComponent. The title "Choose your category" doesn't scroll, only the list content.
+
 
 ChuckNorrisService now has a more sophisticated fetchFact method:
 
@@ -154,6 +157,8 @@ Start working on a new branch, like you did when starting the work on earlier ta
 Add one more element to the list category. "ALL" should be the text. 
 
 When the user chooses the "ALL" category, the fetchFacts() methods fetches random jokes without specifying any category.
+
+"ALL" should appear as selected by default, when the component initializes, according to the actual state.
 
 If you haven't done so yet, commit your changes once the task is complete.
 ## Task 8
