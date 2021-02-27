@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-# Reusing components in Angular
+# ng-basics-2021
 
 ## Task 1
 
@@ -54,6 +53,7 @@ FunViewer has a distinct background color and no padding.
 FunViewer displays FunComponent with the title input "Test Title" and the paragraphs input ["This is paragraph 1", "This is paragraph 2", ... , "This is paragraph 20"]. Generate this data programatically in the ngOnInit() method.
 
 If you haven't done so yet, commit your changes once the task is complete.
+<<<<<<< HEAD
 
 ## Task 3
 
@@ -69,12 +69,3 @@ Install a lorem ipsum generator from npm.
 Use the generator to create the data within the FunViewer's ngOnInit() method and set it as input for the FunComponent.
 
 If you haven't done so yet, commit your changes once the task is complete.
-=======
-# ng-basics-2021
-
-This project was created with Angular 11 and contains several assignments.
-
-Find them on their respective branches.
-
-The tasks build upon each other, they are to be completed in order.
->>>>>>> master
