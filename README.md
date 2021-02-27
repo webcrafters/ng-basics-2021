@@ -176,3 +176,18 @@ Choosing a category should not fetch any jokes now. When jokes are fetched by cl
 
 If you haven't done so yet, commit your changes once the task is complete.
 
+## Task 9
+
+Start working on a new branch, like you did when starting the work on earlier tasks.
+
+The Chuck Norris API has relatively few jokes to offer, especially for certain categories. When requesting a batch o jokes, it is very likely to obtain duplicates. Not only with jokes loaded in earlier batches, but also within the same batch.
+
+Ensure that all jokes displayed in the FunComponent are unique.
+
+A very efficient way to do that is by comparing the joke metadata. 
+
+Refer again to the API documentation, see what could be helpful.
+
+If you haven't done so yet, commit your changes once the task is complete.
+
+
