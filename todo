@@ -1,0 +1,23 @@
++====add angular material
+
+show load spinner while stuff is loading
+
+display each fact in its own card
+
+display funviewer in a dialog
+
+
+
+---------------
++======= reusing code
+
+add dad jokes service
+
+display funComponent with dad jokes -  what can we reuse?
+
+ -> split up fun viewer into generic part and specific part. ChuckNorris will have categories. Dad Jokes will have ...
+
+ dad joke service and norris facts service should also share the accumulated emission logic.
+
+ -> split up the service into generic part (new service AccumulatorService) and specific part. ChuckNorrisService and DadJokesService both use AccumulatorService.
+
