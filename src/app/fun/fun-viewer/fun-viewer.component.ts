@@ -39,4 +39,12 @@ export class FunViewerComponent implements OnInit {
       this.selectedCategory == 'all' ? undefined : this.selectedCategory;
     this.chuckNorrisSvc.updateCategory(categoryForSvc);
   }
+
+  getTitle(): string {
+    const suffix =
+      this.selectedCategory === undefined
+        ? ''
+        : ` - ${this.selectedCategory.toUpperCase()}`;
+    return `Chuck Norris Facts${suffix}`;
+  }
 }
