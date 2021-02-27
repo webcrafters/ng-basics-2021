@@ -158,5 +158,7 @@ Add one more element to the list category. "ALL" should be the text.
 
 When the user chooses the "ALL" category, the fetchFacts() methods fetches random jokes without specifying any category.
 
+"ALL" should appear as selected by default, when the component initializes, according to the actual state.
+
 If you haven't done so yet, commit your changes once the task is complete.
 
