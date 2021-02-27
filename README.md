@@ -128,5 +128,9 @@ If no category is provided, the request goes out without any query parameter.
 
 When FunViewer is initialized, before any category is clicked, there should still be displayed a random joke in the FunComponent.
 
+When a category is chosen, the title of FunComponent displays the name of that category in the form "Chuck Norris Facts - category".
+
+At first, before any category is chosen, the title displays simply "Chuck Norris Facts".
+
 If you haven't done so yet, commit your changes once the task is complete.
 
