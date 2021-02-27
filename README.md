@@ -1,7 +1,10 @@
-<<<<<<< HEAD
-# Reusing components in Angular
+# ng-basics-2021
 
+This project was created with Angular 11 and contains several assignments.
 
+Find them on their respective branches.
+
+The tasks build upon each other, they are to be completed in order.
 
 ## Task 1
 
@@ -24,12 +27,4 @@ If the content of FunComponent overflows the content should scroll vertically. Y
 Test your component by placing it in a parent div of specific width and height. Use as many paragraphs as necessary to test the scrolling behavior.
 
 If you haven't done so yet, commit your changes once the task is complete.
-=======
-# ng-basics-2021
 
-This project was created with Angular 11 and contains several assignments.
-
-Find them on their respective branches.
-
-The tasks build upon each other, they are to be completed in order.
->>>>>>> master
