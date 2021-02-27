@@ -15,7 +15,7 @@ export class FunViewerComponent implements OnInit {
 
   facts$: Observable<string[]> = of([]);
 
-  selectedCategory: string | undefined;
+  selectedCategory: string = 'all';
 
   constructor(private chuckNorrisSvc: ChuckNorrisService) {}
 
