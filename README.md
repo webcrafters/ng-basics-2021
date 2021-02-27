@@ -130,9 +130,9 @@ When FunViewer is initialized, before any category is clicked, there should stil
 
 At first, before any category is chosen, the title displays simply "Chuck Norris Facts".
 
-If you haven't done so yet, commit your changes once the task is complete.
-
 When a category is chosen, the title of FunComponent displays the name of that category in the form "Chuck Norris Facts - category".
+
+If you haven't done so yet, commit your changes once the task is complete.
 
 ## Task 6
 
