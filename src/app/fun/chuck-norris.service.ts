@@ -1,12 +1,42 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
 import { forkJoin, Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { map, mergeMap, scan } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ChuckNorrisService {
+  category: string | undefined;
+
+  private _loadRequestByUser$: EventEmitter<any> = new EventEmitter<any>();
+
+  get facts$(): Observable<string[]> {
+    // ELABORATE SOLUTION
+    const clickOnLoad$: Observable<any> = this._loadRequestByUser$;
+
+    const factsPerClickOnLoad$: Observable<string[]> = clickOnLoad$.pipe(
+      mergeMap(() => this._fetchFacts())
+      // this operator is like map,
+      // but instead of mapping each emission to the observable returned by _fetchFacts() ,
+      // it also "unpacks" that observable, such that it maps to the actual value emitted by it.
+    );
+    const accumulatedFactsPerClickOnLoad$: Observable<
+      string[]
+    > = factsPerClickOnLoad$.pipe(
+      scan((acc, curr) => [...acc, ...curr], [] as string[])
+      // this operator is like reduce on arrays.
+      // whenever a new emission occurs, it adds that emission to all emissions accumulated so far
+    );
+    return accumulatedFactsPerClickOnLoad$;
+
+    // COMPACT SOLUTION
+    // return this._loadRequestByUser$.pipe(
+    //   mergeMap(() => this._fetchFacts()),
+    //   scan((acc, curr) => [...acc, ...curr], [] as string[])
+    // );
+  }
+
   constructor(private http: HttpClient) {}
 
   fetchCategories(): Observable<string[]> {
@@ -15,44 +45,26 @@ export class ChuckNorrisService {
     );
   }
 
-  fetchFacts(category?: string, howMany?: number): Observable<string[]> {
-    const params = category ? `?category=${category}` : '';
+  updateCategory(category?: string) {
+    this.category = category;
+  }
+
+  loadFacts() {
+    this._loadRequestByUser$.emit();
+  }
+
+  private _fetchFacts(howMany?: number): Observable<string[]> {
+    const params = this.category ? `?category=${this.category}` : '';
     const url = `https://api.chucknorris.io/jokes/random${params}`;
 
-    // ELABORATE SOLUTION
-    const emptyArray = new Array(howMany ?? 10).fill(undefined);
-    const requestGenerator = () =>
-      this.http
-        .get<{ value: string }>(url)
-        .pipe(map((data: { value: string }) => data.value));
-
-    // an array of requests that each return an Observable<string>
-    const requests: Observable<string>[] = emptyArray.map(requestGenerator);
-
-    // we want these requests to go out in parallel, so we bundle them with the forkJoin operator
-    // this is an operator that "combines" streams of data in a specific way
-
-    // the result of forkJoin(requests) is an observable
-
-    // when .subscribe() is executed on it, all the observables inside are being subscribed to
-
-    // the "bundle" observable only emits when all the requests have emitted at least once
-
-    // in our case: when fetchFacts().subscribe() is executed,
-    // all the requests are sent to the API. When all responses have arrived,
-    // the chuck norris facts are emitted together as an array, and the subscriber receives them
-
-    const bundleOfRequests: Observable<string[]> = forkJoin(requests);
-    return bundleOfRequests;
-
-    // COMPACT SOLUTION
-    // const requests: Observable<string>[] = new Array(howMany ?? 10)
-    //   .fill(undefined)
-    //   .map(() =>
-    //     this.http
-    //       .get<{ value: string }>(url)
-    //       .pipe(map((data: { value: string }) => data.value))
-    //   );
-    // return forkJoin(requests);
+    const requests: Observable<string>[] = new Array(howMany ?? 10)
+      .fill(undefined)
+      .map(() =>
+        this.http
+          .get<{ value: string }>(url)
+          .pipe(map((data: { value: string }) => data.value))
+      );
+    const bundle: Observable<string[]> = forkJoin(requests);
+    return bundle;
   }
 }

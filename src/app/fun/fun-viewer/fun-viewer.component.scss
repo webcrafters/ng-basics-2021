@@ -49,7 +49,8 @@
   }
 }
 
-.toggler {
+.toggler,
+.loader {
   position: absolute;
   top: 0;
   background-color: transparent;
@@ -58,11 +59,23 @@
   padding: 4px 12px;
   cursor: pointer;
 }
-.toggler:hover {
+.loader {
+  right: 12px;
+  top: 12px;
+  background-color: hsla(0, 50%, 50%, 1);
+  text-transform: uppercase;
+}
+.loader:not(:hover) {
+  color: beige;
+}
+.toggler:hover,
+.loader:hover {
   background-color: beige;
 }
 .toggler:active,
-.toggler:focus {
+.loader:active,
+.toggler:focus,
+.loader:focus {
   border: 1px solid hsl(240, 70%, 50%);
   outline: none;
 }

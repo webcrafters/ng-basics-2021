@@ -13,7 +13,7 @@ export class FunViewerComponent implements OnInit {
 
   categories$: Observable<string[]> = of([]);
 
-  facts$: Observable<string[]> = of([]);
+  facts$: Observable<string[]> = this.chuckNorrisSvc.facts$;
 
   selectedCategory: string = 'all';
 
@@ -23,13 +23,10 @@ export class FunViewerComponent implements OnInit {
     this.categories$ = this.chuckNorrisSvc
       .fetchCategories()
       .pipe(map((categories: string[]) => ['all', ...categories]));
-    this._updateFacts();
   }
 
-  private _updateFacts() {
-    const category =
-      this.selectedCategory == 'all' ? undefined : this.selectedCategory;
-    this.facts$ = this.chuckNorrisSvc.fetchFacts(category);
+  loadFacts() {
+    this.chuckNorrisSvc.loadFacts();
   }
 
   toggleLayout() {
@@ -38,6 +35,8 @@ export class FunViewerComponent implements OnInit {
 
   selectCategory(category: string) {
     this.selectedCategory = category;
-    this._updateFacts();
+    const categoryForSvc =
+      this.selectedCategory == 'all' ? undefined : this.selectedCategory;
+    this.chuckNorrisSvc.updateCategory(categoryForSvc);
   }
 }
