@@ -94,7 +94,7 @@ In this first implementation, there would only be one joke to display. Since our
 
 The Chuck Norris Jokes API can be used with a GET request to "https://api.chucknorris.io/jokes/random". 
 
-See the details of how the response is structured at "https://api.chucknorris.io/#!", or just try the request in your browser.
+See the details of how the response is structured at "https:  //api.chucknorris.io/#!", or just try the request in your browser.
 
 If you haven't done so yet, commit your changes once the task is complete.
 
@@ -151,7 +151,6 @@ Implementation: fetchFacts() sends 10 get requests and returns a join of them al
 Now FunViewer doesn't have to copy jokes, it can receive several jokes at once.
 
 If you haven't done so yet, commit your changes once the task is complete.
-
 
 ## Task 7
 
