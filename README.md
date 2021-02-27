@@ -114,6 +114,8 @@ FunViewer should use the method in order to obtain the categories, then list the
 
 The list elements should be interactive. When one of the elements is clicked, the input data for FunComponent is updated.
 
+The list should be scrollable on overflow, just like the paragraphs in the FunComponent. The title "Choose your category" doesn't scroll, only the list content.
+
 ChuckNorrisService now has a more sophisticated fetchFact method:
 
 `fetchFact(category?: string): Observable<string>`
@@ -125,6 +127,10 @@ If a category is provided as a parameter, the request to the API can be made acc
 If no category is provided, the request goes out without any query parameter.
 
 When FunViewer is initialized, before any category is clicked, there should still be displayed a random joke in the FunComponent.
+
+When a category is chosen, the title of FunComponent displays the name of that category in the form "Chuck Norris Facts - category".
+
+At first, before any category is chosen, the title displays simply "Chuck Norris Facts".
 
 If you haven't done so yet, commit your changes once the task is complete.
 
@@ -145,5 +151,4 @@ Implementation: fetchFacts() sends 10 get requests and returns a join of them al
 Now FunViewer doesn't have to copy jokes, it can receive several jokes at once.
 
 If you haven't done so yet, commit your changes once the task is complete.
-
 
