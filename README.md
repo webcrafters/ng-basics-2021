@@ -115,6 +115,9 @@ FunViewer should use the method in order to obtain the categories, then list the
 
 The list elements should be interactive. When one of the elements is clicked, the input data for FunComponent is updated.
 
+The list should be scrollable on overflow, just like the paragraphs in the FunComponent. The title "Choose your category" doesn't scroll, only the list content.
+
+
 ChuckNorrisService now has a more sophisticated fetchFact method:
 
 `fetchFact(category?: string): Observable<string>`
