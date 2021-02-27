@@ -164,9 +164,7 @@ Jokes should only be loaded when a dedicated "Load" button inside FunViewer is c
 
 Jokes should be accumulated on the page. After each click on "Load", there should be more jokes than before.
 
-Choosing on a category should not fetch any jokes. When jokes are fetched by clicking on "Load", the current category should be used.
-
-When the user chooses the "ALL" category, the fetchFacts() methods fetches random jokes without specifying any category.
+Choosing a category should not fetch any jokes now. When jokes are fetched by clicking on "Load", the currently selected category should be used.
 
 If you haven't done so yet, commit your changes once the task is complete.
 
