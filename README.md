@@ -156,4 +156,17 @@ Add one more element to the list category. "ALL" should be the text.
 When the user chooses the "ALL" category, the fetchFacts() methods fetches random jokes without specifying any category.
 
 If you haven't done so yet, commit your changes once the task is complete.
+## Task 8
+
+Start working on a new branch, like you did when starting the work on earlier tasks.
+
+Jokes should only be loaded when a dedicated "Load" button inside FunViewer is clicked.
+
+Jokes should be accumulated on the page. After each click on "Load", there should be more jokes than before.
+
+Choosing on a category should not fetch any jokes. When jokes are fetched by clicking on "Load", the current category should be used.
+
+When the user chooses the "ALL" category, the fetchFacts() methods fetches random jokes without specifying any category.
+
+If you haven't done so yet, commit your changes once the task is complete.
 
