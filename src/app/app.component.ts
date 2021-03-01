@@ -9,7 +9,7 @@ export class AppComponent {
   // title = 'ng-basics-2021';
   currentTitle = 'Hello Spring!🌸';
   allParagraphs = [
-    'I am sitting',
+    'I am sittingI am sittingI am sittingI am sittingI am sittingI am sittingI am sittingI am sittingI am sitting',
     'In the morning',
     'At the diner',
     'On the corner',
