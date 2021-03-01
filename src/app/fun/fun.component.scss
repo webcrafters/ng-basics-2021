@@ -1,0 +1,21 @@
+// h1 {
+//   text-align: center;
+//   padding: 0 10px;
+// }
+
+.container {
+  overflow-y: scroll;
+}
+
+:host {
+  display: flex;
+  // align-items: center;
+  // text-align: center;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  border: none;
+  // background-color: lightpink;
+  padding: 10px;
+  box-sizing: border-box;
+}

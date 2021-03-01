@@ -8,7 +8,7 @@ The tasks build upon each other, they are to be completed in order.
 
 ## Task 1
 
-Create a new branch when working on the solution for this task. 
+Create a new branch when working on the solution for this task.
 While being on branch task1, use something like
 `git checkout -b my-task1-solution`
 

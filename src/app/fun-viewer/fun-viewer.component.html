@@ -1,0 +1,16 @@
+<div [ngClass]="{
+    horizontal: isHorizontal,
+    vertical: !isHorizontal,
+    component: true
+}">    
+    
+<div class="other-side">
+    <h1>Choose you category</h1>
+</div>
+<app-fun [title]="currentTitle" [paragraphs]="paragraphs"> </app-fun>     
+</div>
+
+<div class="toggle-layout">
+    <button (click)="toggleLayout()">Toggle Me</button>
+</div>
+
