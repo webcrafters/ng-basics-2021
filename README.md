@@ -1,13 +1,24 @@
 # ng-basics-2021
 
+<<<<<<< HEAD
+
+This project was created with Angular 11 and contains several assignments.
+
+# Find them on their respective branches.
+
 This project was created with Angular 11 and contains several assignments.
 
 Find them on their respective branches.
 
 The tasks build upon each other, they are to be completed in order.
+
+> > > > > > > my-task2-solution
+
+The tasks build upon each other, they are to be completed in order.
+
 ## Task 1
 
-Create a new branch when working on the solution for this task. 
+Create a new branch when working on the solution for this task.
 While being on branch task1, use something like
 `git checkout -b my-task1-solution`
 
@@ -72,4 +83,3 @@ Install a lorem ipsum generator from npm.
 
 Use the generator to create the data within the FunViewer's ngOnInit() method and set it as input for the FunComponent.
 If you haven't done so yet, commit your changes once the task is complete.
-
