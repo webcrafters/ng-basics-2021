@@ -1,0 +1,25 @@
+<div [ngClass]="{
+    horizontal: isHorizontal,
+    vertical: !isHorizontal,
+    component: true
+}">    
+    
+<div class="other-side">
+    <h1>Choose you category</h1>
+    <div class="categories">
+        <ul class="categories-list">
+            <li *ngFor="let cat of categories$ | async" 
+                (click)="onCategoriesClick(cat)"
+                class="categories-item">{{cat}}</li>
+        </ul>
+    </div>
+</div>
+
+<app-fun [title]="getTitle()" 
+         [paragraphs]="(paragraphs$ | async) || []"> </app-fun>     
+</div>
+
+<div class="toggle-layout">
+    <button (click)="toggleLayout()">Toggle Me</button>
+</div>
+

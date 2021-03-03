@@ -1,0 +1,38 @@
+h1 {
+  margin: 0;
+}
+
+.component {
+  width: 100%;
+  height: 100vh;
+  background-color: lightpink;
+  box-sizing: border-box;
+}
+
+.horizontal {
+  & > * {
+    height: 50%;
+    width: 100%;
+    // background-color: grey;
+  }
+}
+
+.vertical {
+  & > * {
+    height: 100%;
+    width: 50%;
+    // background-color: pink;
+  }
+  display: flex;
+}
+
+.toggle-layout {
+  position: absolute;
+  top: 10px;
+  left: 300px;
+}
+
+.categories-item {
+  list-style: none;
+  overflow-y: scroll;
+}

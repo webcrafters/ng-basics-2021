@@ -5,9 +5,10 @@ This project was created with Angular 11 and contains several assignments.
 Find them on their respective branches.
 
 The tasks build upon each other, they are to be completed in order.
+
 ## Task 1
 
-Create a new branch when working on the solution for this task. 
+Create a new branch when working on the solution for this task.
 While being on branch task1, use something like
 `git checkout -b my-task1-solution`
 
@@ -78,7 +79,7 @@ If you haven't done so yet, commit your changes once the task is complete.
 
 Start working on a new branch, like you did when starting the work on earlier tasks.
 
-Instead of the lorem ipsum generator, let us create and use a service ChuckNorrisService that fetches chuck norris facts from a REST API. 
+Instead of the lorem ipsum generator, let us create and use a service ChuckNorrisService that fetches chuck norris facts from a REST API.
 
 The service exposes the method
 
@@ -88,11 +89,11 @@ which returns an observable that emits one random Chuck Norris joke
 
 FunViewer injects the ChuckNorrisService and uses it to set the joke as input for the FunComponent.
 
-In this first implementation, there would only be one joke to display. Since our FunComponent looks better with many paragraphs, let us replicate the joke from fetchFact() 20 times, such that the paragraphs input is of the form 
+In this first implementation, there would only be one joke to display. Since our FunComponent looks better with many paragraphs, let us replicate the joke from fetchFact() 20 times, such that the paragraphs input is of the form
 
 `["Chuck Norris once went to ... ", "Chuck Norris once went to ... ", ... ] ` (20 times)
 
-The Chuck Norris Jokes API can be used with a GET request to "https://api.chucknorris.io/jokes/random". 
+The Chuck Norris Jokes API can be used with a GET request to "https://api.chucknorris.io/jokes/random".
 
 See the details of how the response is structured at "https://api.chucknorris.io/#!", or just try the request in your browser.
 
@@ -104,7 +105,7 @@ Start working on a new branch, like you did when starting the work on earlier ta
 
 The Chuck Norris API also gives us a list of available categories. -> GET "https://api.chucknorris.io/jokes/categories"
 
-ChuckNorrisService should also have a method 
+ChuckNorrisService should also have a method
 
 `fetchCategories(): Observable<string[]>`
 
@@ -144,11 +145,10 @@ ChuckNorrisService should expose the method
 
 `fetchFacts(category?: string): Observable<string[]>`
 
-The method returns an Observable which emits exactly one value, an array of 10 jokes. 
+The method returns an Observable which emits exactly one value, an array of 10 jokes.
 
 Implementation: fetchFacts() sends 10 get requests and returns a join of them all (forkJoin operator).
 
 Now FunViewer doesn't have to copy jokes, it can receive several jokes at once.
 
 If you haven't done so yet, commit your changes once the task is complete.
-
