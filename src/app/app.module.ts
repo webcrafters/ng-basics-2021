@@ -5,10 +5,11 @@ import { AppComponent } from './app.component';
 import { FunComponent } from './fun/fun/fun.component';
 import { FunViewerComponent } from './fun/fun-viewer/fun-viewer.component';
 import { LoremIpsum } from 'lorem-ipsum';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [AppComponent, FunComponent, FunViewerComponent],
-  imports: [BrowserModule],
+  imports: [BrowserModule, HttpClientModule],
   providers: [LoremIpsum],
   bootstrap: [AppComponent],
 })

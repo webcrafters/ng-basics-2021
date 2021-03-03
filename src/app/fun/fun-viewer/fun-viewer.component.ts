@@ -1,5 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { LoremIpsum } from 'lorem-ipsum';
+import { ChuckNorrisService } from '../../chuck-norris.service';
+import { Observable, of } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-fun-viewer',
@@ -9,19 +12,18 @@ import { LoremIpsum } from 'lorem-ipsum';
 export class FunViewerComponent implements OnInit {
   @Input() isHorizontal: boolean = false;
 
-  paragraphs: string[] = [];
+  paragraphs$: Observable<string[]> = of([]);
 
-  constructor(private loremIpsumGenerator: LoremIpsum) {}
+  constructor(private chuckSvc: ChuckNorrisService) {}
 
   ngOnInit(): void {
-    const gen = this.loremIpsumGenerator.generator;
-    gen.sentencesPerParagraph.min = 2;
-    gen.sentencesPerParagraph.max = 4;
-    gen.wordsPerSentence.min = 8;
-    gen.wordsPerSentence.max = 20;
-    this.paragraphs = this.loremIpsumGenerator
-      .generateParagraphs(20)
-      .split('\n');
+    const streamWithOneJokeAsEmission = this.chuckSvc.fetchFact();
+
+    const streamWith20CopiesOfThatJokeInOneArray = streamWithOneJokeAsEmission.pipe(
+      map((joke: string) => new Array(20).fill(joke))
+    );
+
+    this.paragraphs$ = streamWith20CopiesOfThatJokeInOneArray;
   }
 
   toggleLayout() {

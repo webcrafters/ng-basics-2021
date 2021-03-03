@@ -7,7 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class FunComponent implements OnInit {
   @Input() title: string = new Input();
-  @Input() paragraphs: string[] = new Input();
+  @Input() paragraphs: string[] | null = new Input();
 
   constructor() {}
 
