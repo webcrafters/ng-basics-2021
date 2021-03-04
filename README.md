@@ -138,17 +138,17 @@ If you haven't done so yet, commit your changes once the task is complete.
 
 Start working on a new branch, like you did when starting the work on earlier tasks.
 
-Fetch multiple jokes in parallel.
-
 ChuckNorrisService should expose the method
 
-`fetchFacts(category?: string): Observable<string[]>`
+`fetchFacts(category?: string): string[]`
 
-The method returns an Observable which emits exactly one value, an array of 10 jokes. 
+The method returns an array of 10 chuck norris facts. This happens synchronously.
 
-Implementation: fetchFacts() sends 10 get requests and returns a join of them all (forkJoin operator).
+Implementation: fetchFacts() holds some dummy data: there is a property of the service
 
-Now FunViewer doesn't have to copy jokes, it can receive several jokes at once.
+`facts: string[] = [/** write a few long strings here */]`
+
+Now FunViewer receives several jokes from the service in one synchronous call: no observables, no promises.
 
 If you haven't done so yet, commit your changes once the task is complete.
 
