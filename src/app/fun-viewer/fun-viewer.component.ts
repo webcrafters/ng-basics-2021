@@ -43,12 +43,9 @@ export class FunViewerComponent implements OnInit {
     // this.paragraphs$ = this.chuckNorrisService
     //   .fetchFact()
     //   .pipe(map((fact: string[]) => new Array(10).fill(fact)));
-    // this.categories$ = this.chuckNorrisService.fetchCategories();
-    this.paragraphs$ = this.chuckNorrisService
-      .fetchCategories()
-      .subscribe((response) => {
-        this.responseData1 = response[0];
-      });
+    this.categories$ = this.chuckNorrisService.fetchCategories();
+
+    this.paragraphs$ = this.chuckNorrisService.fetchFacts();
   }
 
   toggleLayout() {
@@ -58,9 +55,9 @@ export class FunViewerComponent implements OnInit {
   onCategoriesClick(category: string) {
     console.log(category);
     this.category = category;
-    this.paragraphs$ = this.chuckNorrisService
-      .fetchFact(category)
-      .pipe(map((fact: string[]) => new Array(10).fill(fact)));
+
+    this.paragraphs$ = this.chuckNorrisService.fetchFacts(category);
+    // .pipe(map((fact: string[]) => new Array(10).fill(fact)));
   }
 
   getTitle() {

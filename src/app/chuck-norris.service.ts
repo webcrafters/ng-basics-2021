@@ -16,21 +16,65 @@ export class ChuckNorrisService {
   //     .pipe(map((data: { value: string }) => data.value));
   // }
 
-  fetchFact(category?: string): Observable<string[]> {
+  fetchFacts(category?: string): Observable<string[]> {
     const jokesURL = 'https://api.chucknorris.io/jokes/random';
     const paramsURl = `?category=${category}`;
 
-    let response1 = this.http
-      .get<{ value: string }>(`${jokesURL}/${paramsURl}`)
-      .pipe(map((data: { value: string }) => data.value));
-    let response2 = this.http
-      .get<{ value: string }>(`${jokesURL}/${paramsURl}`)
-      .pipe(map((data: { value: string }) => data.value));
-    let response3 = this.http
-      .get<{ value: string }>(`${jokesURL}/${paramsURl}`)
-      .pipe(map((data: { value: string }) => data.value));
+    const url = category ? `${jokesURL}/${paramsURl}` : jokesURL;
 
-    return forkJoin([response1, response2, response3]);
+    let responses = new Array(10)
+      .fill(undefined)
+      .map(() =>
+        this.http
+          .get<{ value: string }>(url)
+          .pipe(map((data: { value: string }) => data.value))
+      );
+
+    return forkJoin(responses);
+
+    // let response1 = this.http
+    //   .get<{ value: string }>(url)
+    //   .pipe(map((data: { value: string }) => data.value));
+    // let response2 = this.http
+    //   .get<{ value: string }>(url)
+    //   .pipe(map((data: { value: string }) => data.value));
+    // let response3 = this.http
+    //   .get<{ value: string }>(url)
+    //   .pipe(map((data: { value: string }) => data.value));
+    // let response4 = this.http
+    //   .get<{ value: string }>(url)
+    //   .pipe(map((data: { value: string }) => data.value));
+    // let response5 = this.http
+    //   .get<{ value: string }>(url)
+    //   .pipe(map((data: { value: string }) => data.value));
+    // let response6 = this.http
+    //   .get<{ value: string }>(url)
+    //   .pipe(map((data: { value: string }) => data.value));
+    // let response7 = this.http
+    //   .get<{ value: string }>(url)
+    //   .pipe(map((data: { value: string }) => data.value));
+    // let response8 = this.http
+    //   .get<{ value: string }>(url)
+    //   .pipe(map((data: { value: string }) => data.value));
+    // let response9 = this.http
+    //   .get<{ value: string }>(url)
+    //   .pipe(map((data: { value: string }) => data.value));
+    // let response10 = this.http
+    //   .get<{ value: string }>(url)
+    //   .pipe(map((data: { value: string }) => data.value));
+
+    // return forkJoin([
+    //   response1,
+    //   response2,
+    //   response3,
+    //   response4,
+    //   response5,
+    //   response6,
+    //   response7,
+    //   response8,
+    //   response9,
+    //   response10,
+    // ]);
 
     // if (category) {
     //   return this.http
