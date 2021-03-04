@@ -9,7 +9,7 @@
     <h1>Choose your category</h1>
     <ul class="categories-list">
       <li
-        *ngFor="let category of categories$ | async"
+        *ngFor="let category of categories"
         (click)="selectCategory(category)"
         [ngClass]="{ 'selected-cat': category === selectedCategory }"
       >
@@ -17,6 +17,6 @@
       </li>
     </ul>
   </div>
-  <app-fun [title]="getTitle()" [paragraphs]="(facts$ | async) || []"></app-fun>
+  <app-fun [title]="getTitle()" [paragraphs]="facts || []"></app-fun>
 </div>
 <button class="toggler" (click)="toggleLayout()">Toggle layout</button>
