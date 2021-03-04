@@ -140,17 +140,22 @@ If you haven't done so yet, commit your changes once the task is complete.
 
 Start working on a new branch, like you did when starting the work on earlier tasks.
 
-ChuckNorrisService should expose the method
+ChuckNorrisService should expose the methods
 
+`fetchCategories(): string[]`
 `fetchFacts(category?: string): string[]`
 
-The method returns an array of 10 chuck norris facts. This happens synchronously.
+The first returns an array of fact categories. The second method returns an array of 10 chuck norris facts. 
 
-Implementation: fetchFacts() holds some dummy data: there is a property of the service
+All of this happens synchronously. Nn observables, no promises.
 
-`facts: string[] = [/** write a few long strings here */]`
+Implementation: fetchFacts() and fetchCategories() return directly some dummy data, in the form
 
-Now FunViewer receives several jokes from the service in one synchronous call: no observables, no promises.
+`return ['category1', 'category2'];`
+and
+`return ['fact1', 'fact2'];`
+
+Now FunViewer can fetch the categories syncrhonously. Also, it can synchronously fetch a few facts from the service.
 
 If you haven't done so yet, commit your changes once the task is complete.
 
