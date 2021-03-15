@@ -56,7 +56,7 @@ export class FunViewerComponent implements OnInit {
   }
 
   updateFacts() {
-    //WHY WHEN WE PUT UNDEFINED IT'S ACTUALLY GIVING US SOMETHING
+    //WHY WHEN WE PUT UNDEFINED
     const c = this.category == 'all' ? undefined : this.category;
     this.paragraphs$ = this.chuckNorrisService.fetchFacts(c);
   }
