@@ -20,12 +20,14 @@ export class FunViewerComponent implements OnInit {
   constructor(private chuckNorrisSvc: ChuckNorrisService) {}
 
   async ngOnInit() {
-    this.categories = await this.chuckNorrisSvc.fetchCategories();
+    this.categories = ['all', ...(await this.chuckNorrisSvc.fetchCategories())];
     this._updateFacts();
   }
 
   private async _updateFacts() {
-    this.facts = await this.chuckNorrisSvc.fetchFacts(this.selectedCategory);
+    const categoryParameter =
+      this.selectedCategory === 'all' ? undefined : this.selectedCategory;
+    this.facts = await this.chuckNorrisSvc.fetchFacts(categoryParameter);
   }
 
   toggleLayout() {
