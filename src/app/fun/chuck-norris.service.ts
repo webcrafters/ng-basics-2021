@@ -9,16 +9,20 @@ import { map } from 'rxjs/operators';
 export class ChuckNorrisService {
   constructor(private http: HttpClient) {}
 
-  fetchCategories(): string[] {
-    return ['Food', 'History', 'Fashion', 'Sports', 'Science'];
+  async fetchCategories(): Promise<string[]> {
+    // return ['Food', 'History', 'Fashion', 'Sports', 'Science'];
+
+    return this.http.get('https://categories...'); // promise in loc de observable
   }
 
-  fetchFacts(category?: string): string[] {
-    return [
-      'Chuck Norris is Chuck Norris. This fact is undisputed.',
-      'Chuck Norris knows that he is Chuck Norris. This is a big deal, but Chuck Norris is so strong that he can take it.',
-      "Everybody who ever had an encounter with Chuck Norris is afraid of him. Except himself. He takes it like it's nothing, every moment.",
-      'Chuck Norris has never slept in his life. At night, with eyes closed, he mentally works on his roundhouse kick. 7 hours, every single night.',
-    ];
+  async fetchFacts(category?: string): Promise<string[]> {
+    // return [
+    //   'Chuck Norris is Chuck Norris. This fact is undisputed.',
+    //   'Chuck Norris knows that he is Chuck Norris. This is a big deal, but Chuck Norris is so strong that he can take it.',
+    //   "Everybody who ever had an encounter with Chuck Norris is afraid of him. Except himself. He takes it like it's nothing, every moment.",
+    //   'Chuck Norris has never slept in his life. At night, with eyes closed, he mentally works on his roundhouse kick. 7 hours, every single night.',
+    // ];
+
+    return this.http.get(`https://?category=${category}`);
   }
 }
