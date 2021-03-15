@@ -1,6 +1,7 @@
+import { transition } from '@angular/animations';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, forkJoin } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 @Injectable({
@@ -12,17 +13,38 @@ export class ChuckNorrisService {
   async fetchCategories(): Promise<string[]> {
     // return ['Food', 'History', 'Fashion', 'Sports', 'Science'];
 
-    return this.http.get('https://categories...'); // promise in loc de observable
+    const requestAsStream = this.http.get<string[]>(
+      'https://api.chucknorris.io/jokes/categories'
+    );
+
+    return requestAsStream.toPromise();
   }
 
-  async fetchFacts(category?: string): Promise<string[]> {
-    // return [
-    //   'Chuck Norris is Chuck Norris. This fact is undisputed.',
-    //   'Chuck Norris knows that he is Chuck Norris. This is a big deal, but Chuck Norris is so strong that he can take it.',
-    //   "Everybody who ever had an encounter with Chuck Norris is afraid of him. Except himself. He takes it like it's nothing, every moment.",
-    //   'Chuck Norris has never slept in his life. At night, with eyes closed, he mentally works on his roundhouse kick. 7 hours, every single night.',
-    // ];
+  async fetchFacts(category?: string, howMany?: number): Promise<string[]> {
+    const params = category ? `?category=${category}` : '';
+    const url = `https://api.chucknorris.io/jokes/random${params}`;
 
-    return this.http.get(`https://?category=${category}`);
+    // ELABORATE SOLUTION
+    const emptyArray = new Array(howMany ?? 10).fill(undefined);
+    const requestGenerator = () =>
+      this.http
+        .get<{ value: string }>(url)
+        .pipe(map((data: { value: string }) => data.value));
+
+    // an array of requests that each return an Observable<string>
+    const requests: Observable<string>[] = emptyArray.map(requestGenerator);
+
+    const bundleOfRequests: Observable<string[]> = forkJoin(requests);
+    return bundleOfRequests.toPromise();
+
+    // COMPACT SOLUTION
+    // const requests: Observable<string>[] = new Array(howMany ?? 10)
+    //   .fill(undefined)
+    //   .map(() =>
+    //     this.http
+    //       .get<{ value: string }>(url)
+    //       .pipe(map((data: { value: string }) => data.value))
+    //   );
+    // return forkJoin(requests);
   }
 }
