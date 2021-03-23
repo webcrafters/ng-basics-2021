@@ -218,5 +218,20 @@ For now, we ignore the search term entered by the user.
 When this task is done, your DadJokesViewer should allow users to load 20 random jokes from the API. This should only happen when the "Load" button is clicked.
 
 If you haven't done so yet, commit your changes once the task is complete.
+## Task 8.3
 
+Start working on a new branch, like you did when starting the work on earlier tasks.
 
+Smart search!
+
+The Dad Jokes API is smarter than the Chuck Norris Facts API. We have the url: `https://icanhazdadjoke.com/search` which can be used with optional query params.
+
+Check out the docs at `https://icanhazdadjoke.com/api` to see how search is used. 
+
+Make the following changes to your code:
+
+- fetchJokes() should be called with a search parameter; the method signature changes: now we have `fetchJokes(howMany: number, searchTerm: string) : Observable<string[]>`
+- as specified before, the fetchJokes method is called only when the user clicks "Load"; when that happens, make sure to pass the current searchTerm; the current search term is initially "" and is updated whenever the user clicks on "Apply" in the DadJokesViewer
+- make sure that the title of the DadJokesComponent always displays the current search term
+
+Commit your changes once the task is complete.
