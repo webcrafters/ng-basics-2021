@@ -11,8 +11,7 @@ export class DadJokesService {
 
   get jokes$(): Observable<string[]> {
     return this._loadRequestByUser$.pipe(
-      mergeMap((searchTerm: string) => this._fetchJokes(20, searchTerm)),
-      scan((acc, curr) => [...acc, ...curr], [] as string[])
+      mergeMap((searchTerm: string) => this._fetchJokes(20, searchTerm))
     );
   }
 
