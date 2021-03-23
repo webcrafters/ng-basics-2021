@@ -182,11 +182,14 @@ Start working on a new branch, like you did when starting the work on earlier ta
 
 Add routing to the project.
 
-There should be two routes: 'chucknorris' and 'dadjokes'. On both routes we should see the FunViewer component.
+There should be two routes: 'chucknorris' and 'dadjokes'. 
 
-On the 'chucknorris' route FunViewer should display the FunComponent we've already created.
+On the 'chucknorris' route we display the FunViewer component that we've already created.
 
-On the 'dadjokes' route FunViewer should display a new component called DadJokesComponent. You can leave this with the default html `<p>DadJokesComponent works!<p>`.
+On the 'dadjokes' route we display a new component called DadJokesViewer. It behaves similarly to the FunViewer, except:
+
+- instead of the FunComponent, it displays the DadJokesComponent. This is a new component. Create it and leave it with the default html `<p>DadJokesComponent works!<p>`.
+- instead of a list of selectable categories, it displays a simple text field with an "Apply" button. Here, the user doesn't choose a category from a fixed set, but enters a search term. In a later task we will use the search term when fetching dad jokes.
 
 The route '' should redirect to 'chucknorris'.
 
