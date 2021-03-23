@@ -1,0 +1,8 @@
+<div class="search-jokes">
+    <input type="text" class="search-jokes__input" placeholder="Search a joke 🔎">
+    <button class="apply-button">Apply</button>    
+</div>
+
+<button (click)='loadFacts()'>Load</button>
+
+<app-dad-jokes [facts]="(facts | async) || []"></app-dad-jokes>

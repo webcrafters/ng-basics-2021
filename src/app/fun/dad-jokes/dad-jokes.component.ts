@@ -1,6 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { Observable, of } from 'rxjs';
-import { DadJokesService } from '../dad-jokes.service';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-dad-jokes',
@@ -8,23 +6,9 @@ import { DadJokesService } from '../dad-jokes.service';
   styleUrls: ['./dad-jokes.component.scss'],
 })
 export class DadJokesComponent implements OnInit {
-  title: string = 'Dad Jokes';
-  facts: Observable<string[]> = of([]);
+  @Input() facts: string[] = new Input();
 
-  constructor(private dadJokessService: DadJokesService) {}
+  constructor() {}
 
-  ngOnInit() {
-    this.facts = this.dadJokessService.fetchJokes();
-  }
-
-  // async loadFacts() {
-  //   this.facts = await this.dadJokessService.fetchJokes();
-  // }
-
-  // async loadFacts() {
-  //   const newFacts = await this.dadJokessService.fetchJokes();
-  //   this.facts = newFacts
-
-  //   // this.facts = [...this.facts, ...jokes];
-  // }
+  ngOnInit() {}
 }

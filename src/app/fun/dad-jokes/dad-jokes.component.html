@@ -1,11 +1,5 @@
-<h1 class="jokes-heading">{{title}}</h1>
-<div class="search-jokes">
-    <input type="text" class="search-jokes__input" placeholder="Search a joke 🔎">
-    <button class="apply-button">Apply</button>    
-</div>
 
-<div class="dad-jokes">
-<p *ngFor="let paragraph of paragraphs">{{paragraph}}</p>
-<br>
-<button (click)="loadFacts()" class="load-button">Load</button>
+<div class="facts">
+    <p *ngFor="let fact of facts">{{ fact }}</p>
 </div>
+  

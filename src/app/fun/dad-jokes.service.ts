@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { forkJoin, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -16,7 +16,9 @@ export class DadJokesService {
       .fill(undefined)
       .map(() =>
         this.http
-          .get<{ joke: string }>(url)
+          .get<{ joke: string }>(url, {
+            headers: { Accept: 'application/json' },
+          })
           .pipe(map((data: { joke: string }) => data.joke))
       );
     return forkJoin(requests);
