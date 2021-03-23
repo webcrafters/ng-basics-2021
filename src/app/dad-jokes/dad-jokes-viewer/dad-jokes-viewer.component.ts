@@ -12,22 +12,16 @@ export class DadJokesViewerComponent implements OnInit {
 
   jokes$: Observable<string[]> = this.dadJokesSvc.jokes$;
 
-  searchTerm = '';
-
   constructor(private dadJokesSvc: DadJokesService) {}
 
   ngOnInit(): void {}
 
-  loadJokes() {
-    this.dadJokesSvc.loadJokes(this.searchTerm);
+  loadJokes(searchTerm: string) {
+    this.dadJokesSvc.loadJokes(searchTerm);
   }
 
   toggleLayout() {
     this.isHorizontal = !this.isHorizontal;
-  }
-
-  applySearchTerm(v: string) {
-    this.searchTerm = v;
   }
 
   getTitle(): string {
