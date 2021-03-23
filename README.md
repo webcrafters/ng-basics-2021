@@ -247,6 +247,10 @@ Start working on a new branch, like you did when starting the work on earlier ta
 
 Add another textfield to the DadJokesViewer. This one is numeric and represents the number of jokes to fetch on each request. The default value is 20. Refer to the documentation on `https://icanhazdadjoke.com/api` regarding how to configure the number of jokes.
 
-When calling fetchJokes(), make sure to pass the value from the numeric text field.
+When calling fetchJokes(), make sure to also pass in the value from the numeric text field. 
+
+If the value is not a positive integer, fetchJokes() should not be called when "Load" is clicked. Instead, an error message should appear below the numeric input field.
+
+EXTRA CHALLENGE: when new jokes are fetched, reset the numeric field too. This should not happen if the user clicks on "Load" and the value is invalid. Only if fetchJokes() is actually called.
 
 Commit your changes once the task is complete.
