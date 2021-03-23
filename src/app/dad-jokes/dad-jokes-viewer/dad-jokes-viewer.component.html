@@ -8,15 +8,10 @@
   <div class="aside">
     <form class="dad-jokes-form">
       <input type="text" placeholder="Jokes filter" #searchTermField />
-      <input type="number" placeholder="How many" #howManyField />
+      <input type="number" placeholder="How many" value="20" #howManyField />
       <div class="number-error" *ngIf="!isValidHowMany">
         Must be a positive integer
       </div>
-      <button
-        (click)="applySearchValues(searchTermField.value, +howManyField.value)"
-      >
-        Apply
-      </button>
     </form>
   </div>
   <app-dad-jokes
@@ -25,4 +20,9 @@
   ></app-dad-jokes>
 </div>
 <button class="toggler" (click)="toggleLayout()">Toggle layout</button>
-<button class="loader" (click)="loadJokes()">Load</button>
+<button
+  class="loader"
+  (click)="loadJokes(searchTermField.value, howManyField.value)"
+>
+  Load
+</button>

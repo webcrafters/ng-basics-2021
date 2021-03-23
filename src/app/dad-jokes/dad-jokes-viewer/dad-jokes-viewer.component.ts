@@ -12,29 +12,23 @@ export class DadJokesViewerComponent implements OnInit {
 
   jokes$: Observable<string[]> = this.dadJokesSvc.jokes$;
 
-  searchTerm = '';
-  howMany = 20;
-
   isValidHowMany = true;
 
   constructor(private dadJokesSvc: DadJokesService) {}
 
   ngOnInit(): void {}
 
-  loadJokes() {
-    this.dadJokesSvc.loadJokes(this.searchTerm);
+  loadJokes(searchTerm: string, howMany: string) {
+    const howManyAsNumber = +howMany;
+    this.isValidHowMany =
+      Number.isInteger(howManyAsNumber) && howManyAsNumber > 0;
+    if (this.isValidHowMany) {
+      this.dadJokesSvc.loadJokes(searchTerm, howMany);
+    }
   }
 
   toggleLayout() {
     this.isHorizontal = !this.isHorizontal;
-  }
-
-  applySearchValues(searchTerm: string, howMany: number) {
-    this.searchTerm = searchTerm;
-    this.isValidHowMany = Number.isInteger(howMany) && howMany > 0;
-    if (this.isValidHowMany) {
-      this.howMany = howMany;
-    }
   }
 
   getTitle(): string {
