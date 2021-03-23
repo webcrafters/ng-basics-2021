@@ -239,8 +239,12 @@ Make the following changes to your code:
 
 - fetchJokes() should be called with a search parameter; the method signature changes: now we have `fetchJokes(howMany?: number, searchTerm?: string) : Observable<string[]>`
 - the fetchJokes() implementation should consider the cases when no searchTerm is passed in, and then use the default value ""
-- as specified before, the fetchJokes method is called only when the user clicks "Load"; when that happens, make sure to pass the current searchTerm; the current search term is initially "" and is updated whenever the user clicks on "Apply" in the DadJokesViewer.
-- make sure that the title of the DadJokesComponent always displays the current search term
+- as specified before, the fetchJokes method is called only when the user clicks "Load"; when that happens, search term that is currently entered in the search field should be passed to fetchJokes()
+- you can remove the "Apply" button
+- the title of the DadJokesComponent always displays the search term that was used for the latest fetching
+
+
+- EXTRA challenge: implement the search field without any explicit state in the component (i.e., no [(ngModel)]); you should be able to get the value from the text field without this two-way binding; after you've succeeded with that, find a way to reset the search field to "" whenever "Load" is clicked and new jokes are fetched
 
 Commit your changes once the task is complete.
 
@@ -250,6 +254,10 @@ Start working on a new branch, like you did when starting the work on earlier ta
 
 Add another textfield to the DadJokesViewer. This one is numeric and represents the number of jokes to fetch on each request. The default value is 20. Refer to the documentation on `https://icanhazdadjoke.com/api` regarding how to configure the number of jokes.
 
-When calling fetchJokes(), make sure to pass the value from the numeric text field.
+When calling fetchJokes(), make sure to also pass in the value from the numeric text field. 
+
+If the value is not a positive integer, fetchJokes() should not be called when "Load" is clicked. Instead, an error message should appear below the numeric input field.
+
+EXTRA CHALLENGE: when new jokes are fetched, reset the numeric field too. This should not happen if the user clicks on "Load" and the value is invalid. Only if fetchJokes() is actually called.
 
 Commit your changes once the task is complete.
