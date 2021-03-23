@@ -209,13 +209,13 @@ Let's start simple: A simple get request to the API will give us a random joke. 
 Our DadJokesService uses the GET request for a random joke in a similar way to the ChuckNorrisService in our solution for Task6.
 It has a method
 
-`fetchJokes(howMany: number) : Observable<string[]>`
+`fetchJokes(howMany?: number) : Observable<string[]>`
 
 The method returns a stream of string[] by forkJoining several separate requests to the API.
 
 For now, we ignore the search term entered by the user. 
 
-When this task is done, your DadJokesViewer should allow users to load 20 random jokes from the API. This should only happen when the "Load" button is clicked.
+When this task is done, your DadJokesViewer should allow users to load 20 random jokes from the API. This should only happen when the "Load" button is clicked. You can pass the value 20 explicitly when calling fetchJokes, or you can implement the method by providing the default value 20.
 
 If you haven't done so yet, commit your changes once the task is complete.
 
