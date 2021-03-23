@@ -5,6 +5,8 @@ This project was created with Angular 11 and contains several assignments.
 Find them on their respective branches.
 
 The tasks build upon each other, they are to be completed in order.
+
+The tasks build upon each other, they are to be completed in order.
 ## Task 1
 
 Create a new branch when working on the solution for this task. 
@@ -94,7 +96,7 @@ In this first implementation, there would only be one joke to display. Since our
 
 The Chuck Norris Jokes API can be used with a GET request to "https://api.chucknorris.io/jokes/random". 
 
-See the details of how the response is structured at "https://api.chucknorris.io/#!", or just try the request in your browser.
+See the details of how the response is structured at "https:  //api.chucknorris.io/#!", or just try the request in your browser.
 
 If you haven't done so yet, commit your changes once the task is complete.
 
@@ -138,17 +140,22 @@ If you haven't done so yet, commit your changes once the task is complete.
 
 Start working on a new branch, like you did when starting the work on earlier tasks.
 
-Fetch multiple jokes in parallel.
+ChuckNorrisService should expose the methods
 
-ChuckNorrisService should expose the method
+`fetchCategories(): string[]`
+`fetchFacts(category?: string): string[]`
 
-`fetchFacts(category?: string): Observable<string[]>`
+The first returns an array of fact categories. The second method returns an array of 10 chuck norris facts. 
 
-The method returns an Observable which emits exactly one value, an array of 10 jokes. 
+All of this happens synchronously. Nn observables, no promises.
 
-Implementation: fetchFacts() sends 10 get requests and returns a join of them all (forkJoin operator).
+Implementation: fetchFacts() and fetchCategories() return directly some dummy data, in the form
 
-Now FunViewer doesn't have to copy jokes, it can receive several jokes at once.
+`return ['category1', 'category2'];`
+and
+`return ['fact1', 'fact2'];`
+
+Now FunViewer can fetch the categories syncrhonously. Also, it can synchronously fetch a few facts from the service.
 
 If you haven't done so yet, commit your changes once the task is complete.
 
