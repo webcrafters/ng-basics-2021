@@ -13,6 +13,9 @@ export class DadJokesViewerComponent implements OnInit {
   jokes$: Observable<string[]> = this.dadJokesSvc.jokes$;
 
   searchTerm = '';
+  howMany = 20;
+
+  isValidHowMany = true;
 
   constructor(private dadJokesSvc: DadJokesService) {}
 
@@ -26,8 +29,12 @@ export class DadJokesViewerComponent implements OnInit {
     this.isHorizontal = !this.isHorizontal;
   }
 
-  applySearchTerm(v: string) {
-    this.searchTerm = v;
+  applySearchValues(searchTerm: string, howMany: number) {
+    this.searchTerm = searchTerm;
+    this.isValidHowMany = Number.isInteger(howMany) && howMany > 0;
+    if (this.isValidHowMany) {
+      this.howMany = howMany;
+    }
   }
 
   getTitle(): string {

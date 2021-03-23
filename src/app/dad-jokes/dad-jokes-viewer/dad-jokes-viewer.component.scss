@@ -8,6 +8,16 @@
 
 .dad-jokes-form {
   margin-top: 48px;
+  display: flex;
+  height: 100px;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.number-error {
+  color: red;
+  font-size: smaller;
 }
 
 .aside {
