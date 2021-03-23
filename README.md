@@ -230,8 +230,9 @@ Check out the docs at `https://icanhazdadjoke.com/api` to see how search is used
 
 Make the following changes to your code:
 
-- fetchJokes() should be called with a search parameter; the method signature changes: now we have `fetchJokes(howMany: number, searchTerm: string) : Observable<string[]>`
-- as specified before, the fetchJokes method is called only when the user clicks "Load"; when that happens, make sure to pass the current searchTerm; the current search term is initially "" and is updated whenever the user clicks on "Apply" in the DadJokesViewer
+- fetchJokes() should be called with a search parameter; the method signature changes: now we have `fetchJokes(howMany?: number, searchTerm?: string) : Observable<string[]>`
+- the fetchJokes() implementation should consider the cases when no searchTerm is passed in, and then use the default value ""
+- as specified before, the fetchJokes method is called only when the user clicks "Load"; when that happens, make sure to pass the current searchTerm; the current search term is initially "" and is updated whenever the user clicks on "Apply" in the DadJokesViewer.
 - make sure that the title of the DadJokesComponent always displays the current search term
 
 Commit your changes once the task is complete.
