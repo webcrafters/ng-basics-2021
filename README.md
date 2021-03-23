@@ -254,3 +254,11 @@ If the value is not a positive integer, fetchJokes() should not be called when "
 EXTRA CHALLENGE: when new jokes are fetched, reset the numeric field too. This should not happen if the user clicks on "Load" and the value is invalid. Only if fetchJokes() is actually called.
 
 Commit your changes once the task is complete.
+
+## Task 8.5
+
+Start working on a new branch, like you did when starting the work on earlier tasks.
+
+Loading dad jokes should also be possible by pressing ENTER while focus is on any of the two input fields: search term or number of jokes.
+
+Commit your changes once the task is complete.
