@@ -194,5 +194,29 @@ On the 'dadjokes' route we display a new component called DadJokesViewer. It beh
 The route '' should redirect to 'chucknorris'.
 
 If you haven't done so yet, commit your changes once the task is complete.
+## Task 8.2
+
+Start working on a new branch, like you did when starting the work on earlier tasks.
+
+The DadJokesComponent should behave in a way similar to the FunComponent. Paragraphs should be Dad Jokes instead of Chuck Norris Facts.
+
+We can fetch dad jokes from the Dad Jokes API: `https://icanhazdadjoke.com/`. 
+
+Create a DadJokesService similar to the ChuckNorrisService.
+
+Let's start simple: A simple get request to the API will give us a random joke. Check out `https://icanhazdadjoke.com/api` for the documentation, or try a request in your browser, in order to see how the response json is formatted.
+
+Our DadJokesService uses the GET request for a random joke in a similar way to the ChuckNorrisService in our solution for Task6.
+It has a method
+
+`fetchJokes(howMany: number) : Observable<string[]>`
+
+The method returns a stream of string[] by forkJoining several separate requests to the API.
+
+For now, we ignore the search term entered by the user. 
+
+When this task is done, your DadJokesViewer should allow users to load 20 random jokes from the API. This should only happen when the "Load" button is clicked.
+
+If you haven't done so yet, commit your changes once the task is complete.
 
 
