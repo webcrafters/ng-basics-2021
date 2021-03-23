@@ -11,7 +11,10 @@
       <button>Apply</button>
     </form>
   </div>
-  <app-dad-jokes></app-dad-jokes>
+  <app-dad-jokes
+    [paragraphs]="(jokes$ | async) || []"
+    [title]="getTitle()"
+  ></app-dad-jokes>
 </div>
 <button class="toggler" (click)="toggleLayout()">Toggle layout</button>
-<button class="loader" (click)="loadFacts()">Load</button>
+<button class="loader" (click)="loadJokes()">Load</button>
