@@ -235,3 +235,13 @@ Make the following changes to your code:
 - make sure that the title of the DadJokesComponent always displays the current search term
 
 Commit your changes once the task is complete.
+
+## Task 8.4
+
+Start working on a new branch, like you did when starting the work on earlier tasks.
+
+Add another textfield to the DadJokesViewer. This one is numeric and represents the number of jokes to fetch on each request. The default value is 20. Refer to the documentation on `https://icanhazdadjoke.com/api` regarding how to configure the number of jokes.
+
+When calling fetchJokes(), make sure to pass the value from the numeric text field.
+
+Commit your changes once the task is complete.
