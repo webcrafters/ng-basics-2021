@@ -7,8 +7,8 @@
 >
   <div class="aside">
     <form class="dad-jokes-form">
-      <input type="text" placeholder="Jokes filter" />
-      <button>Apply</button>
+      <input type="text" placeholder="Jokes filter" #inputField />
+      <button (click)="applySearchTerm(inputField.value)">Apply</button>
     </form>
   </div>
   <app-dad-jokes

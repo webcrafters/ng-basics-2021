@@ -19,11 +19,15 @@ export class DadJokesViewerComponent implements OnInit {
   ngOnInit(): void {}
 
   loadJokes() {
-    this.dadJokesSvc.loadJokes();
+    this.dadJokesSvc.loadJokes(this.searchTerm);
   }
 
   toggleLayout() {
     this.isHorizontal = !this.isHorizontal;
+  }
+
+  applySearchTerm(v: string) {
+    this.searchTerm = v;
   }
 
   getTitle(): string {

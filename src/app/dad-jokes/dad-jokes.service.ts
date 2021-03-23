@@ -7,34 +7,39 @@ import { map, mergeMap, scan, tap } from 'rxjs/operators';
   providedIn: 'root',
 })
 export class DadJokesService {
-  private _loadRequestByUser$: EventEmitter<any> = new EventEmitter<any>();
+  private _loadRequestByUser$: EventEmitter<string> = new EventEmitter<string>();
 
   get jokes$(): Observable<string[]> {
     return this._loadRequestByUser$.pipe(
-      mergeMap(() => this._fetchJokes()),
+      mergeMap((searchTerm: string) => this._fetchJokes(20, searchTerm)),
       scan((acc, curr) => [...acc, ...curr], [] as string[])
     );
   }
 
   constructor(private http: HttpClient) {}
 
-  loadJokes() {
-    this._loadRequestByUser$.emit();
+  loadJokes(searchTerm: string) {
+    this._loadRequestByUser$.emit(searchTerm);
   }
 
-  private _fetchJokes(howMany?: number): Observable<string[]> {
-    const url = `https://icanhazdadjoke.com/`;
+  private _fetchJokes(
+    howMany?: number,
+    searchTerm?: string
+  ): Observable<string[]> {
+    const url = `https://icanhazdadjoke.com/search`;
+    const queryParams = {
+      term: searchTerm ?? '',
+    };
 
-    const requests: Observable<string>[] = new Array(howMany ?? 20)
-      .fill(undefined)
-      .map(() =>
-        this.http
-          .get<{ joke: string }>(url, {
-            headers: { Accept: 'application/json' },
-          })
-          .pipe(map((data: { joke: string }) => data.joke))
+    return this.http
+      .get<{ results: { joke: string }[] }>(url, {
+        headers: { Accept: 'application/json' },
+        params: queryParams,
+      })
+      .pipe(
+        map((data: { results: { joke: string }[] }) =>
+          data.results.map((r) => r.joke)
+        )
       );
-    const bundle: Observable<string[]> = forkJoin(requests);
-    return bundle;
   }
 }
