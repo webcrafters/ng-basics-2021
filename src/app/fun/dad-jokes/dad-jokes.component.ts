@@ -9,15 +9,17 @@ import { DadJokesService } from '../dad-jokes.service';
 })
 export class DadJokesComponent implements OnInit {
   title: string = 'Dad Jokes';
-  facts: string[] = [];
+  facts: Observable<string[]> = of([]);
 
   constructor(private dadJokessService: DadJokesService) {}
 
-  ngOnInit() {}
-
-  async loadFacts() {
-    this.facts = await this.dadJokessService.fetchJokes();
+  ngOnInit() {
+    this.facts = this.dadJokessService.fetchJokes();
   }
+
+  // async loadFacts() {
+  //   this.facts = await this.dadJokessService.fetchJokes();
+  // }
 
   // async loadFacts() {
   //   const newFacts = await this.dadJokessService.fetchJokes();

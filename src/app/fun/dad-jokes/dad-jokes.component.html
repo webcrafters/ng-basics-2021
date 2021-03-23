@@ -4,8 +4,8 @@
     <button class="apply-button">Apply</button>    
 </div>
 
-<div class="dad-jokes" >
-<p *ngFor="let fact of facts">{{fact}}</p>
+<div class="dad-jokes">
+<p *ngFor="let paragraph of paragraphs">{{paragraph}}</p>
 <br>
 <button (click)="loadFacts()" class="load-button">Load</button>
 </div>
