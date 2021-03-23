@@ -8,6 +8,7 @@ import { LoremIpsum } from 'lorem-ipsum';
 import { HttpClientModule } from '@angular/common/http';
 import { DadJokesComponent } from './fun/dad-jokes/dad-jokes.component';
 import { AppRoutingModule } from './app-routing.module';
+import { DadJokesViewerComponent } from './fun/dad-jokes-viewer/dad-jokes-viewer.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { AppRoutingModule } from './app-routing.module';
     FunComponent,
     FunViewerComponent,
     DadJokesComponent,
+    DadJokesViewerComponent,
   ],
   imports: [BrowserModule, HttpClientModule, AppRoutingModule],
   providers: [LoremIpsum],
