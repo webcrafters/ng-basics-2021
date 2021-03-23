@@ -239,7 +239,11 @@ Make the following changes to your code:
 
 - fetchJokes() should be called with a search parameter; the method signature changes: now we have `fetchJokes(howMany?: number, searchTerm?: string) : Observable<string[]>`
 - the fetchJokes() implementation should consider the cases when no searchTerm is passed in, and then use the default value ""
-- as specified before, the fetchJokes method is called only when the user clicks "Load"; when that happens, make sure to pass the current searchTerm; the current search term is initially "" and is updated whenever the user clicks on "Apply" in the DadJokesViewer.
-- make sure that the title of the DadJokesComponent always displays the current search term
+- as specified before, the fetchJokes method is called only when the user clicks "Load"; when that happens, search term that is currently entered in the search field should be passed to fetchJokes()
+- you can remove the "Apply" button
+- the title of the DadJokesComponent always displays the search term that was used for the latest fetching
+
+
+- EXTRA challenge: implement the search field without any explicit state in the component (i.e., no [(ngModel)]); you should be able to get the value from the text field without this two-way binding; after you've succeeded with that, find a way to reset the search field to "" whenever "Load" is clicked and new jokes are fetched
 
 Commit your changes once the task is complete.
