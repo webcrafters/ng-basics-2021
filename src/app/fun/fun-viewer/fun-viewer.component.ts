@@ -15,19 +15,22 @@ export class FunViewerComponent implements OnInit {
 
   facts: string[] = [];
 
-  selectedCategory: string | undefined;
+  selectedCategory: string = 'all';
 
   constructor(private chuckNorrisSvc: ChuckNorrisService) {}
 
   async ngOnInit() {
     this.categories = ['all', ...(await this.chuckNorrisSvc.fetchCategories())];
-    this._updateFacts();
   }
 
-  private async _updateFacts() {
+  async loadFacts() {
     const categoryParameter =
       this.selectedCategory === 'all' ? undefined : this.selectedCategory;
-    this.facts = await this.chuckNorrisSvc.fetchFacts(categoryParameter);
+    const newFacts = await this.chuckNorrisSvc.fetchFacts(categoryParameter);
+    // this.facts = newFacts;
+
+    this.facts = [...this.facts, ...newFacts];
+    // this.facts.push(...newFacts);
   }
 
   toggleLayout() {
@@ -36,7 +39,6 @@ export class FunViewerComponent implements OnInit {
 
   selectCategory(category: string) {
     this.selectedCategory = category;
-    this._updateFacts();
   }
 
   getTitle(): string {

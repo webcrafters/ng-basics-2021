@@ -47,4 +47,8 @@ export class ChuckNorrisService {
     //   );
     // return forkJoin(requests);
   }
+
+  async loadFacts(category: string): Promise<string[]> {
+    return await this.fetchFacts();
+  }
 }
