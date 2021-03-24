@@ -268,4 +268,6 @@ Start working on a new branch, like you did when starting the work on earlier ta
 
 Implement the DadJokesViewer functionality by using Angular Reactive Forms.
 
+EXTRA CHALLENGE: So far, the validation of your numeric input field should only happen when "Load" is clicked. Use a custom validator in your reactive form control, such that the validation happens on every input change.
+
 Commit your changes once the task is complete.
