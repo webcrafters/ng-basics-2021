@@ -6,22 +6,25 @@
   }"
 >
   <div class="aside">
-    <form class="dad-jokes-form">
+    <form class="dad-jokes-form" [formGroup]="searchForm">
       <input
         type="text"
         placeholder="Jokes filter"
-        (keyup.Enter)="loadJokes(searchTermField.value, howManyField.value)"
-        #searchTermField
+        (keyup.Enter)="loadJokes()"
+        formControlName="searchTerm"
       />
       <input
         type="number"
         placeholder="How many"
-        (keyup.Enter)="loadJokes(searchTermField.value, howManyField.value)"
+        (keyup.Enter)="loadJokes()"
         value="20"
-        #howManyField
+        formControlName="howMany"
       />
-      <div class="number-error" *ngIf="!isValidHowMany">
-        Must be a positive integer
+      <div
+        *ngIf="searchForm.get('howMany')?.errors?.isNegative"
+        class="number-error"
+      >
+        Number of jokes must be positive
       </div>
     </form>
   </div>
@@ -31,9 +34,4 @@
   ></app-dad-jokes>
 </div>
 <button class="toggler" (click)="toggleLayout()">Toggle layout</button>
-<button
-  class="loader"
-  (click)="loadJokes(searchTermField.value, howManyField.value)"
->
-  Load
-</button>
+<button class="loader" (click)="loadJokes()">Load</button>

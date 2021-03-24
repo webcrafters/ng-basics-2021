@@ -8,7 +8,7 @@ import { LoremIpsum } from 'lorem-ipsum';
 import { HttpClientModule } from '@angular/common/http';
 import { DadJokesViewerComponent } from './dad-jokes/dad-jokes-viewer/dad-jokes-viewer.component';
 import { DadJokesComponent } from './dad-jokes/dad-jokes/dad-jokes.component';
-import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
@@ -19,7 +19,12 @@ import { AppRoutingModule } from './app-routing.module';
     DadJokesViewerComponent,
     DadJokesComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+  ],
   providers: [LoremIpsum],
   bootstrap: [AppComponent],
 })
