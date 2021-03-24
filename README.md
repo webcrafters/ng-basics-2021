@@ -94,7 +94,7 @@ In this first implementation, there would only be one joke to display. Since our
 
 The Chuck Norris Jokes API can be used with a GET request to "https://api.chucknorris.io/jokes/random". 
 
-See the details of how the response is structured at "https://api.chucknorris.io/#!", or just try the request in your browser.
+See the details of how the response is structured at "https:  //api.chucknorris.io/#!", or just try the request in your browser.
 
 If you haven't done so yet, commit your changes once the task is complete.
 
@@ -128,11 +128,12 @@ If no category is provided, the request goes out without any query parameter.
 
 When FunViewer is initialized, before any category is clicked, there should still be displayed a random joke in the FunComponent.
 
-When a category is chosen, the title of FunComponent displays the name of that category in the form "Chuck Norris Facts - category".
-
 At first, before any category is chosen, the title displays simply "Chuck Norris Facts".
 
+When a category is chosen, the title of FunComponent displays the name of that category in the form "Chuck Norris Facts - category".
+
 If you haven't done so yet, commit your changes once the task is complete.
+
 
 ## Task 6
 
@@ -151,7 +152,6 @@ Implementation: fetchFacts() sends 10 get requests and returns a join of them al
 Now FunViewer doesn't have to copy jokes, it can receive several jokes at once.
 
 If you haven't done so yet, commit your changes once the task is complete.
-
 
 ## Task 7
 
