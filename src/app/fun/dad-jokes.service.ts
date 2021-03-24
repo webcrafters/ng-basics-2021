@@ -9,8 +9,8 @@ import { map } from 'rxjs/operators';
 export class DadJokesService {
   constructor(private http: HttpClient) {}
 
-  fetchJokes(howMany?: number): Observable<string[]> {
-    const url = 'https://icanhazdadjoke.com';
+  fetchJokes(howMany?: number, searchTerm?: string): Observable<string[]> {
+    const url = 'https://icanhazdadjoke.com/';
 
     const requests: Observable<string>[] = new Array(howMany ?? 20)
       .fill(undefined)
