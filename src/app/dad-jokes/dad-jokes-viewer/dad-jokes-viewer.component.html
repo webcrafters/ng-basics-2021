@@ -7,8 +7,19 @@
 >
   <div class="aside">
     <form class="dad-jokes-form">
-      <input type="text" placeholder="Jokes filter" #searchTermField />
-      <input type="number" placeholder="How many" value="20" #howManyField />
+      <input
+        type="text"
+        placeholder="Jokes filter"
+        (keyup.Enter)="loadJokes(searchTermField.value, howManyField.value)"
+        #searchTermField
+      />
+      <input
+        type="number"
+        placeholder="How many"
+        (keyup.Enter)="loadJokes(searchTermField.value, howManyField.value)"
+        value="20"
+        #howManyField
+      />
       <div class="number-error" *ngIf="!isValidHowMany">
         Must be a positive integer
       </div>
