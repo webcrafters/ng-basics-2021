@@ -29,8 +29,7 @@ export class DadJokesViewerComponent implements OnInit {
       queryParams: { searchTerm },
       queryParamsHandling: 'merge',
     });
-    this.facts$ = this.dadjokesService.loadFacts(searchTerm);
-    console.log(this.facts$);
+    this.facts$ = this.dadjokesService.fetchJokes(searchTerm);
   }
 
   toggleLayout() {
