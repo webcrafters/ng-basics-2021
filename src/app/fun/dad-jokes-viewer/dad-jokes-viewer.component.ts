@@ -11,7 +11,7 @@ import { map } from 'rxjs/operators';
 })
 export class DadJokesViewerComponent implements OnInit {
   facts$: Observable<string[]> = of([]);
-  searchTerm: string = '';
+  // searchTerm: string = '';
 
   @Input() isHorizontal: boolean = true;
 

@@ -13,18 +13,16 @@ export class DadJokesService {
     const url = 'https://icanhazdadjoke.com/search';
     const queryParams = { term: searchTerm ?? '' };
 
-    const requests: Observable<string>[] = new Array(howMany ?? 20)
-      .fill(undefined)
-      .map(() =>
-        this.http
-          .get<{ joke: string }>(url, {
-            headers: { Accept: 'application/json' },
-            params: queryParams,
-          })
-          .pipe(map((data: { joke: string }) => data.joke))
+    return this.http
+      .get<{ results: { joke: string }[] }>(url, {
+        headers: { Accept: 'application/json' },
+        params: queryParams,
+      })
+      .pipe(
+        map((data: { results: { joke: string }[] }) =>
+          data.results.map((res) => res.joke)
+        )
       );
-
-    return forkJoin(requests);
   }
 
   loadFacts(searchTerm: string): Observable<string[]> {
