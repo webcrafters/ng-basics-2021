@@ -1,0 +1,28 @@
+.horizontal {
+  align-items: stretch;
+  & > * {
+    width: 50%;
+  }
+}
+
+.vertical {
+  flex-direction: column;
+  & > * {
+    height: 50%;
+    align-self: start;
+  }
+}
+
+.component {
+  --bg-col: rgb(185, 228, 230);
+  width: 100%;
+  height: 100vh;
+  background-color: var(--bg-col);
+  display: flex;
+}
+
+.other-side {
+  padding: 12px 24px;
+  display: flex;
+  flex-direction: column;
+}
