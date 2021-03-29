@@ -1,0 +1,47 @@
+<div [ngClass]="{
+    horizontal: isHorizontal,
+    vertical: !isHorizontal,
+    component: true
+}">   
+
+    <div class="search-jokes other-side"  
+    >
+
+ 
+        <form [formGroup]="form" class="form">
+            
+                <input type="text" 
+                formControlName="searchTerm"
+                class="search-jokes__input" 
+                placeholder="Search a joke 🔎"
+                #searchTerm
+                >
+                <input type="number"
+                formControlName="limit"
+                id="limit"
+                class="search-jokes__input-limit"
+                placeholder="Enter a number of jokes"
+                value= '20'
+                min="0"
+                #searchLimit
+                >
+                
+   
+        <div class="errors--alert" *ngIf="isInputNegative()">
+           The number should be positive
+        </div>
+
+       <button 
+       [disabled]="isInputNegative()"
+            (click)="loadFacts(searchTerm?.value, limit?.value ); searchTerm.value = '';"
+            class="load-button">Load
+        </button>
+       <button class="toggle-button"   (click)="toggleLayout()">Toggle layout</button>
+
+    </form>
+    </div>
+
+    <app-fun [title]="jokeTitle" [paragraphs]="(facts$ | async) || []"></app-fun>
+</div>
+
+
