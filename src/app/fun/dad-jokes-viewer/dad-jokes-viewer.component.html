@@ -1,0 +1,40 @@
+<div [ngClass]="{
+    horizontal: isHorizontal,
+    vertical: !isHorizontal,
+    component: true
+}">   
+
+    <div class="search-jokes other-side"  
+    >
+        <form #f="ngForm" class="form" >
+            
+                <input type="text" 
+                class="search-jokes__input" 
+                placeholder="Search a joke 🔎"
+                #searchTerm
+                >
+                <input type="number"
+                class="search-jokes__input-limit"
+                placeholder="Enter a number of jokes"
+                value= '20'
+                min="0"
+                #searchLimit
+                >
+                
+        <div class="errors--alert" *ngIf="!inputPositive ">
+           The number should be positive and bigger than 0
+        </div>
+
+       <button 
+       (click)="loadFacts(searchTerm.value, searchLimit.value); searchTerm.value=''"
+      
+            class="load-button">Load</button>
+       <button class="toggle-button" (click)="toggleLayout()">Toggle layout</button>
+
+    </form>
+    </div>
+
+    <app-dad-jokes [facts]="(facts$ | async) || []"></app-dad-jokes>
+</div>
+
+
