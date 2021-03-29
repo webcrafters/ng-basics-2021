@@ -271,3 +271,20 @@ Implement the DadJokesViewer functionality by using Angular Reactive Forms.
 EXTRA CHALLENGE: So far, the validation of your numeric input field should only happen when "Load" is clicked. Use a custom validator in your reactive form control, such that the validation happens on every input change.
 
 Commit your changes once the task is complete.
+
+## Task 8.7
+
+Start working on a new branch.
+
+Your app currently has 2 features: viewing dad jokes and viewing chuck norris facts.
+
+Refactor your code to reflect this. Choose the most suitable names for all your components. Would you use different modules for each of the features? Can you think of reasons why different modules would be desirable?
+
+EXTRA CHALLENGE (professional level)
+Share some code between the two features. The joke components are pretty similar. The viewer components are pretty similar. Even the services are pretty similar. 
+
+Your code may become much easier to grow if you extract some common functionality, and use it in both places.
+We are targeting specifically the most recently implemented functionality: the one specified in task8.6 for dad jokes and task7 for chuck norris facts.
+
+Commit your changes once the task is complete.
+
