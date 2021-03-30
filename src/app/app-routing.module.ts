@@ -8,8 +8,6 @@ const routes: Routes = [
   { path: '', redirectTo: 'dadjokes', pathMatch: 'full' },
   { path: 'chucknorris', component: ChuckNorrisViewerComponent },
   { path: 'dadjokes', component: DadJokesViewerComponent },
-  // { path: 'dadjokes', component: DadJokesViewerComponent },
-  // { path: 'dadjokes', component: DadJokesViewerComponent },
 ];
 
 @NgModule({
