@@ -17,9 +17,22 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
+import { FunPickerComponent } from './fun-picker/fun-picker.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { AddressFormComponent } from './address-form/address-form.component';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
-  declarations: [AppComponent, ChuckNorrisViewerComponent, NavbarComponent],
+  declarations: [
+    AppComponent,
+    ChuckNorrisViewerComponent,
+    NavbarComponent,
+    FunPickerComponent,
+    AddressFormComponent,
+  ],
   imports: [
     BrowserModule,
     HttpClientModule,
@@ -35,6 +48,11 @@ import { MatListModule } from '@angular/material/list';
     MatSidenavModule,
     MatIconModule,
     MatListModule,
+    MatDialogModule,
+    MatInputModule,
+    MatSelectModule,
+    MatRadioModule,
+    MatCardModule,
   ],
   providers: [LoremIpsum],
   bootstrap: [AppComponent],
